@@ -1,0 +1,31 @@
+// lv2.최댓값과 최솟값, 최솟값 만들기
+
+// 최댓값과 최솟값
+
+def solution(s):
+    target = s.split() // ['1', '4', '5'] string형태로 들어온 요소들을 자른 후 배열에 넣음
+    
+    list_value = list(map(int, target)) // int형으로 변환해주는 함수
+    list_value.sort() // 정렬시켜줌
+    
+    ss = f"{list_value[0]} {list_value[-1]}" // 최댓값과 최솟값 각각 구해줌 핵심은 'f{} {}' 사용법
+    return ss
+
+
+    
+print(solution("1 5 3 4"))
+
+
+// 최솟값 만들기
+def solution2(A,B):
+    answer = 0
+    // 최솟값은 가장 작은 값을 많이 곱해주는게 핵심. 오름 내림 배열 하나씨 만들어줌
+    A.sort()
+    B.sort(reverse = True)
+    
+    for i in range(0, len(A)): //   range(0,3)은 0부터 2까지 조회한다. -1 안해줘도 됨
+        answer += (A[i] * B[i])
+    return answer
+    
+print(solution2([1,4,2], [5,4,4]))
+
